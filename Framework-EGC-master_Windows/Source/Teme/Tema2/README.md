@@ -5,20 +5,22 @@
 </p>
 
 ### Description
-OpenGL 2D game that was made with Framework, have one player that is reprezented with bow and it need to shooting balloons or Shuriken.
-In game are two types of balloons red (increases score) and yellow (decreases score).
-Shuriken can kill you, and you need go aside.
+OpenGL 3D game that was made with Framework, have one player that is reprezented with ball and it need to jumping on platforms.
+In game are multiple type of platform tha increases fuel bar, decreases fuel bar, increases speed, decreases lives.
+Player have 3 lives and he die when go out from platform or lose all 3 lives.
 
 <h4>The project was realized within a faculty project at Computer graphics.
   
 ### How to play
-You can play with mouse (select direction of shooting) and with up and down button (for moving).
-You have power bar and score bar. 
+You can play with W, S, A and D button (for moving).
+You have fule bar and lives bar reprezented by hearts. 
 
 ### About the project.
 I worked on this project for one week.
-
-   All object is created by me from geometric figure (square, triangle, etc...), I use 2D collision detection.
+    
+    Game have an multiple type of platform that is select random from vector of platforms, when ball drop on platform, ball start deformate and 
+    take the ability of platform.
+    The ball emits light like sun.
 
 ### Future scope
   * make Menu and multiple level of difficulty.
