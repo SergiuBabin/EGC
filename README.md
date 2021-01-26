@@ -1,7 +1,7 @@
 
 Elemente de Grafica pe Calculator
 
-## [Laboratoare EGC](https://github.com/user/repo/blob/branch/other_file.md)
+## [Laboratoare EGC](https://github.com/SergiuBabin/Laboratoare-EGC/tree/main/Framework-EGC-master_Windows/Source/Laboratoare)
 ### Laborator 1
   
     * Încărcați un alt model 3D și randați-l în scenă la o poziție diferită față de cele 2 cuburi.
