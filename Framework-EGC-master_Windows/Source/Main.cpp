@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	WindowObject* window = Engine::Init(wp);
 
 	// Create a new 3D world and start running it
-	World *world = new Bow_and_Arrow();
+	World *world = new Skyroads();
 	world->Init();
 	world->Run();
 
