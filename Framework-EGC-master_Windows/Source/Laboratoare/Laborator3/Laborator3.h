@@ -4,6 +4,7 @@
 #include <string>
 #include <Core/Engine.h>
 
+#define LIMIT (.2f)
 class Laborator3 : public SimpleScene
 {
 	public:
@@ -29,6 +30,12 @@ class Laborator3 : public SimpleScene
 	protected:
 		glm::mat3 modelMatrix;
 		float translateX, translateY;
+		float BtranslateX, BtranslateY;
+		float Bcx, Bcy;
 		float scaleX, scaleY;
 		float angularStep;
+		float BangularStep;
+		float cx, cy;
+		int i;
+		bool BmoveR, moveR, pulse, maxY;
 };

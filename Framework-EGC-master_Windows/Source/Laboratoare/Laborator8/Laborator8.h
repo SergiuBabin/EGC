@@ -32,4 +32,9 @@ class Laborator8 : public SimpleScene
 		unsigned int materialShininess;
 		float materialKd;
 		float materialKs;
+
+		int isSpotlight;
+		float cutAngle;
+		float angleOX = 0.f;
+		float angleOY = 0.f;
 };

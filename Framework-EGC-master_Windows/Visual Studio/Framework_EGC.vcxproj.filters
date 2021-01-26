@@ -61,6 +61,18 @@
     <Filter Include="Laboratoare\Laborator9\Shaders">
       <UniqueIdentifier>{a7995ec9-7a24-4990-8d42-92088d9a6dfb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Teme">
+      <UniqueIdentifier>{a2b30752-9556-491c-95eb-e05576a76a84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Teme\Tema2">
+      <UniqueIdentifier>{7964e5d0-31a0-49f9-a5f5-2be6c8a0bd87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Teme\Tema2\Shaders">
+      <UniqueIdentifier>{8f990f2b-ba04-4891-9965-d46f5646124e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Teme\Tema1">
+      <UniqueIdentifier>{15c3fa36-5795-44e3-b0d9-95a6749880e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Core\Engine.cpp">
@@ -138,6 +150,18 @@
     </ClCompile>
     <ClCompile Include="..\Source\Laboratoare\Laborator9\Laborator9.cpp">
       <Filter>Laboratoare\Laborator9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Teme\Tema2\Skyroads.cpp">
+      <Filter>Teme\Tema2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Teme\Tema2\Object2D.cpp">
+      <Filter>Teme\Tema2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Teme\Tema1\Bow_and_Arrow.cpp">
+      <Filter>Teme\Tema1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Teme\Tema1\Player.cpp">
+      <Filter>Teme\Tema1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +264,27 @@
     <ClInclude Include="..\Source\Laboratoare\Laborator9\Laborator9.h">
       <Filter>Laboratoare\Laborator9</Filter>
     </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema2\LabCamera.h">
+      <Filter>Teme\Tema2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema2\Skyroads.h">
+      <Filter>Teme\Tema2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema2\Object2D.h">
+      <Filter>Teme\Tema2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema2\Transform2D.h">
+      <Filter>Teme\Tema2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema1\Bow_and_Arrow.h">
+      <Filter>Teme\Tema1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema1\Player.h">
+      <Filter>Teme\Tema1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Teme\Tema1\Transform2D.h">
+      <Filter>Teme\Tema1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Source\Laboratoare\Laborator6\Shaders\FragmentShader.glsl">
@@ -267,5 +312,17 @@
       <Filter>Laboratoare\Laborator9\Shaders</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
+    <None Include="..\Source\Teme\Tema2\Shaders\FragmentShader.glsl">
+      <Filter>Teme\Tema2\Shaders</Filter>
+    </None>
+    <None Include="..\Source\Teme\Tema2\Shaders\VertexShader.glsl">
+      <Filter>Teme\Tema2\Shaders</Filter>
+    </None>
+    <None Include="..\Source\Teme\Tema2\Shaders\SphereFragmentShader.glsl">
+      <Filter>Teme\Tema2\Shaders</Filter>
+    </None>
+    <None Include="..\Source\Teme\Tema2\Shaders\SphereVertexShader.glsl">
+      <Filter>Teme\Tema2\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

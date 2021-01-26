@@ -52,6 +52,12 @@ void Laborator8::Init()
 		materialShininess = 30;
 		materialKd = 0.5;
 		materialKs = 0.5;
+
+		isSpotlight = 0;
+		cutAngle = 30.f;
+
+		angleOX = 0.f;
+		angleOY = 0.f;
 	}
 }
 
@@ -145,6 +151,12 @@ void Laborator8::RenderSimpleMesh(Mesh *mesh, Shader *shader, const glm::mat4 & 
 	int object_color = glGetUniformLocation(shader->program, "object_color");
 	glUniform3f(object_color, color.r, color.g, color.b);
 
+	int SpotLight = glGetUniformLocation(shader->program, "is_spot");
+	glUniform1i(SpotLight, isSpotlight);
+
+	int cut_angle = glGetUniformLocation(shader->program, "cut_Angle");
+	glUniform1f(cut_angle, cutAngle);
+
 	// Bind model matrix
 	GLint loc_model_matrix = glGetUniformLocation(shader->program, "Model");
 	glUniformMatrix4fv(loc_model_matrix, 1, GL_FALSE, glm::value_ptr(modelMatrix));
@@ -185,12 +197,46 @@ void Laborator8::OnInputUpdate(float deltaTime, int mods)
 		if (window->KeyHold(GLFW_KEY_D)) lightPosition += right * deltaTime * speed;
 		if (window->KeyHold(GLFW_KEY_E)) lightPosition += up * deltaTime * speed;
 		if (window->KeyHold(GLFW_KEY_Q)) lightPosition -= up * deltaTime * speed;
+
+		if (window->KeyHold(GLFW_KEY_C) && cutAngle < 360.f)
+		{
+			cutAngle += deltaTime * 10;
+		}
+
+		if (window->KeyHold(GLFW_KEY_V) && cutAngle > 0.f)
+		{
+			cutAngle -= deltaTime * 10;
+		}
+
+		if (window->KeyHold(GLFW_KEY_UP))
+		{
+			angleOX += deltaTime * speed;
+		}
+
+		if (window->KeyHold(GLFW_KEY_DOWN))
+		{
+			angleOX -= deltaTime * speed;
+		}
+
+		if (window->KeyHold(GLFW_KEY_LEFT))
+		{
+			angleOY += deltaTime * speed;
+		}
+
+		if (window->KeyHold(GLFW_KEY_RIGHT))
+		{
+			angleOY -= deltaTime * speed;
+		}
+
 	}
 }
 
 void Laborator8::OnKeyPress(int key, int mods)
 {
 	// add key press event
+	if (key == GLFW_KEY_F) {
+		isSpotlight = (isSpotlight == 0) ? 1 : 0;
+	}
 }
 
 void Laborator8::OnKeyRelease(int key, int mods)

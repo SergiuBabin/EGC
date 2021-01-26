@@ -45,6 +45,10 @@
     <ClCompile Include="..\Source\Laboratoare\Laborator8\Laborator8.cpp" />
     <ClCompile Include="..\Source\Laboratoare\Laborator9\Laborator9.cpp" />
     <ClCompile Include="..\Source\Main.cpp" />
+    <ClCompile Include="..\Source\Teme\Tema1\Bow_and_Arrow.cpp" />
+    <ClCompile Include="..\Source\Teme\Tema1\Player.cpp" />
+    <ClCompile Include="..\Source\Teme\Tema2\Object2D.cpp" />
+    <ClCompile Include="..\Source\Teme\Tema2\Skyroads.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Source\Component\CameraInput.h" />
@@ -80,6 +84,13 @@
     <ClInclude Include="..\Source\Laboratoare\Laborator7\Laborator7.h" />
     <ClInclude Include="..\Source\Laboratoare\Laborator8\Laborator8.h" />
     <ClInclude Include="..\Source\Laboratoare\Laborator9\Laborator9.h" />
+    <ClInclude Include="..\Source\Teme\Tema1\Bow_and_Arrow.h" />
+    <ClInclude Include="..\Source\Teme\Tema1\Player.h" />
+    <ClInclude Include="..\Source\Teme\Tema1\Transform2D.h" />
+    <ClInclude Include="..\Source\Teme\Tema2\LabCamera.h" />
+    <ClInclude Include="..\Source\Teme\Tema2\Object2D.h" />
+    <ClInclude Include="..\Source\Teme\Tema2\Skyroads.h" />
+    <ClInclude Include="..\Source\Teme\Tema2\Transform2D.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Source\Laboratoare\Laborator6\Shaders\FragmentShader.glsl" />
@@ -90,6 +101,10 @@
     <None Include="..\Source\Laboratoare\Laborator8\Shaders\VertexShader.glsl" />
     <None Include="..\Source\Laboratoare\Laborator9\Shaders\FragmentShader.glsl" />
     <None Include="..\Source\Laboratoare\Laborator9\Shaders\VertexShader.glsl" />
+    <None Include="..\Source\Teme\Tema2\Shaders\FragmentShader.glsl" />
+    <None Include="..\Source\Teme\Tema2\Shaders\SphereFragmentShader.glsl" />
+    <None Include="..\Source\Teme\Tema2\Shaders\SphereVertexShader.glsl" />
+    <None Include="..\Source\Teme\Tema2\Shaders\VertexShader.glsl" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

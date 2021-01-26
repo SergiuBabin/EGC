@@ -25,8 +25,15 @@ class Laborator4 : public SimpleScene
 
 	protected:
 		glm::mat4 modelMatrix;
+		glm::vec3 endPos, midPos, startPos;
 		float translateX, translateY, translateZ;
+		float tX, tY, tZ;
 		float scaleX, scaleY, scaleZ;
-		float angularStepOX, angularStepOY, angularStepOZ;
+		float angularStepOX, angularStepOY, angularStepOZ, angularStepOYSun, angularStepOYEarth, angularStepOYMoon;
 		GLenum polygonMode;
+		GLfloat SunX, SunY, SunZ;
+		GLfloat posX, posY, posZ;
+		GLfloat satellite;
+		bool moveR;
+
 };

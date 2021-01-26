@@ -127,11 +127,10 @@ void Laborator2::Init()
 		meshes["circle"]->SetDrawMode(GL_TRIANGLE_FAN);
 	}
 
-
 	{
 		vector<VertexFormat> vertices;
 		vector<GLushort> indices;
-		float delta = 2.0f * 3.14159f / NrSlices;
+		float delta =3.14159f / NrSlices;
 		vertices.emplace_back(glm::vec3(0, 0, 0), glm::vec3(0.5, 1, 1));
 		for (unsigned int i = 0; i <= NrSlices; i++)
 		{
@@ -141,7 +140,7 @@ void Laborator2::Init()
 		indices.push_back(1);
 		// Create a new mesh from buffer data
 		CreateMesh("circle1", vertices, indices);
-		meshes["circle1"]->SetDrawMode(GL_TRIANGLE_FAN);
+		meshes["circle1"]->SetDrawMode(GL_LINE_STRIP);
 	}
 }
 

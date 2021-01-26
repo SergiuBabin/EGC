@@ -30,6 +30,9 @@ void Laborator4::Init()
 	translateY = 0;
 	translateZ = 0;
 
+	tX = 0;
+	tY = 0;
+	tZ = 0;
 	// initialize sx, sy and sz (the scale factors)
 	scaleX = 1;
 	scaleY = 1;
@@ -39,6 +42,18 @@ void Laborator4::Init()
 	angularStepOX = 0;
 	angularStepOY = 0;
 	angularStepOZ = 0;
+
+	angularStepOYSun = 0;
+	angularStepOYEarth = 0;
+	angularStepOYMoon = 0;
+
+	SunX = 2.f;
+	SunY = 2.f;
+	SunZ = 0.f;
+
+	satellite = 0;
+
+	moveR = false;
 }
 
 void Laborator4::FrameStart()
@@ -59,7 +74,7 @@ void Laborator4::Update(float deltaTimeSeconds)
 	glPolygonMode(GL_FRONT_AND_BACK, polygonMode);
 
 	modelMatrix = glm::mat4(1);
-	modelMatrix *= Transform3D::Translate(-2.5f, 0.5f,-1.5f);
+	modelMatrix *= Transform3D::Translate(-2.5f, 0.5f, -1.5f);
 	modelMatrix *= Transform3D::Translate(translateX, translateY, translateZ);
 	RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
 
@@ -74,6 +89,51 @@ void Laborator4::Update(float deltaTimeSeconds)
 	modelMatrix *= Transform3D::RotateOY(angularStepOY);
 	modelMatrix *= Transform3D::RotateOZ(angularStepOZ);
 	RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
+
+	{
+		angularStepOYSun += deltaTimeSeconds * 0.2;
+		angularStepOYEarth += deltaTimeSeconds * 1;
+		angularStepOYMoon += deltaTimeSeconds * 1.5;
+
+
+		if (moveR) {
+			tX += deltaTimeSeconds;
+			if (tX > 10)
+				moveR = false;
+		}
+		else {
+			tX -= deltaTimeSeconds;
+			if (tX <= 0) {
+				moveR = true;		}
+		}
+		
+		modelMatrix = glm::mat4(1);
+		modelMatrix *= Transform3D::Translate(SunX, SunY, SunZ);
+		modelMatrix *= Transform3D::Translate(tX, tY, tZ);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYSun);
+
+		RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
+
+		modelMatrix = glm::mat4(1);
+		modelMatrix *= Transform3D::Translate(SunX, SunY, SunZ);
+		modelMatrix *= Transform3D::Translate(tX, tY, tZ);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYEarth);
+		modelMatrix *= Transform3D::Translate(2, 0, 0);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYEarth);
+		modelMatrix *= Transform3D::Scale(0.5f, 0.5f, 0.5f);
+		RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
+
+		modelMatrix = glm::mat4(1);
+		modelMatrix *= Transform3D::Translate(SunX, SunY, SunZ);
+		modelMatrix *= Transform3D::Translate(tX, tY, tZ);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYEarth);
+		modelMatrix *= Transform3D::Translate(2, 0, 0);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYEarth);
+		modelMatrix *= Transform3D::Translate(1, 0, 0);
+		modelMatrix *= Transform3D::RotateOY(angularStepOYMoon);
+		modelMatrix *= Transform3D::Scale(0.3f, 0.3f, 0.3f);
+		RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
+	}
 }
 
 void Laborator4::FrameEnd()
@@ -84,6 +144,74 @@ void Laborator4::FrameEnd()
 void Laborator4::OnInputUpdate(float deltaTime, int mods)
 {
 	// TODO
+	if (!window->MouseHold(GLFW_MOUSE_BUTTON_RIGHT))
+	{
+		if (window->KeyHold(GLFW_KEY_S))
+		{	
+			translateZ += deltaTime;
+		}
+
+		if (window->KeyHold(GLFW_KEY_W))
+		{
+			translateZ -= deltaTime;
+		}
+
+		if (window->KeyHold(GLFW_KEY_D))
+		{
+			translateX += deltaTime;
+		}
+
+		if (window->KeyHold(GLFW_KEY_A))
+		{
+			translateX -= deltaTime;
+		}
+		if (window->KeyHold(GLFW_KEY_R))
+		{
+			translateY += deltaTime;
+		}
+		if (window->KeyHold(GLFW_KEY_F))
+		{
+			translateY -= deltaTime;
+		}
+	}
+
+	if (window->KeyHold(GLFW_KEY_1))
+	{
+		scaleX += deltaTime;
+		scaleY += deltaTime;
+		scaleZ += deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_2))
+	{
+		scaleX -= deltaTime;
+		scaleY -= deltaTime;
+		scaleZ -= deltaTime;
+	}
+	
+	if (window->KeyHold(GLFW_KEY_3))
+	{
+		angularStepOX += deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_4))
+	{
+		angularStepOX -= deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_5))
+	{
+		angularStepOY += deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_6))
+	{
+		angularStepOY -= deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_7))
+	{
+		angularStepOZ += deltaTime;
+	}
+	if (window->KeyHold(GLFW_KEY_8))
+	{
+		angularStepOZ -= deltaTime;
+	}
 }
 
 void Laborator4::OnKeyPress(int key, int mods)
